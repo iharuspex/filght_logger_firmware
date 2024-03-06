@@ -1,0 +1,50 @@
+/dts-v1/;
+#include <st/f1/stm32f103X8.dtsi>
+#include <st/f1/stm32f103r(8-b)tx-pinctrl.dtsi>
+
+/ {
+    model = "Rocket Flight Logger";
+    compatible = "st,stm32f103c8";
+
+    chosen {
+        zephyr,sram = &sram0;
+        zephyr,flash = &flash0;
+    };
+
+    leds {
+        compatible = "gpio-leds";
+        led: led {
+            gpios = <&gpioc 13 GPIO_ACTIVE_HIGH>;
+            label = "LD";
+        };
+    };
+
+    aliases {
+        led0 = &led;
+    };
+};
+
+&pinctrl {
+    swj-cfg = "jtag-disable";
+    status = "okay";
+};
+
+&clk_hse {
+    clock-frequency = <DT_FREQ_M(8)>;
+    status = "okay";
+};
+
+&pll {
+    mul = <9>;
+    clocks = <&clk_hse>;
+    status = "okay";
+};
+
+&rcc {
+	clocks = <&pll>;
+	clock-frequency = <DT_FREQ_M(72)>;
+	ahb-prescaler = <1>;
+	apb1-prescaler = <2>;
+	apb2-prescaler = <1>;
+	/* usbpre not set: USB clock = 72 / 1.5: 48MHz */
+};

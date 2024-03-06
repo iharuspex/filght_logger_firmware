@@ -1,0 +1,18 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "f1-debug",
+            "cwd": "${workspaceFolder}",
+            "executable": "${workspaceRoot}/build/zephyr/zephyr.elf",
+            "request": "launch",
+            "type": "cortex-debug",
+            "runToEntryPoint": "main",
+            "interface": "swd",
+            "servertype": "openocd",
+            "configFiles": [
+                "${workspaceRoot}/boards/others/rocket_logger/support/openocd.cfg"
+            ]
+        }
+    ]
+}

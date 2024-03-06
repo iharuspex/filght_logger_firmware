@@ -1,0 +1,6 @@
+board:
+  name: rocket_logger
+  vendor: others
+  socs:
+    - name: stm32f103xb
+  
