@@ -1,5 +1,11 @@
 {
     "files.associations": {
-        "gpio.h": "c"
+        "gpio.h": "c",
+        "pinctrl.h": "c",
+        "gpio_stm32.h": "c",
+        "stm32_ll_bus.h": "c",
+        "stm32_ll_gpio.h": "c",
+        "stm32_ll_system.h": "c",
+        "stm32_clock_control.h": "c"
     }
 }

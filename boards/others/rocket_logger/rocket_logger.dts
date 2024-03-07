@@ -24,11 +24,6 @@
     };
 };
 
-&pinctrl {
-    swj-cfg = "jtag-disable";
-    status = "okay";
-};
-
 &clk_hse {
     clock-frequency = <DT_FREQ_M(8)>;
     status = "okay";
@@ -47,4 +42,8 @@
 	apb1-prescaler = <2>;
 	apb2-prescaler = <1>;
 	/* usbpre not set: USB clock = 72 / 1.5: 48MHz */
+};
+
+&pinctrl {
+    swj-cfg = "jtag-disable";
 };
